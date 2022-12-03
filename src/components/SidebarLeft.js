@@ -7,7 +7,7 @@ export const SidebarLeft = () => {
     navigate("/");
   };
   return (
-    <div className="h-screen">
+    <>
       <div
         className="h-[70px] mx-[28px] flex items-center justify-start"
         onClick={() => handleClick()}>
@@ -35,6 +35,6 @@ export const SidebarLeft = () => {
             );
           })}
       </div>
-    </div>
+    </>
   );
 };

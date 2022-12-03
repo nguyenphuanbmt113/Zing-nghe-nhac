@@ -1,9 +1,15 @@
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Route, Routes } from "react-router-dom";
 import "./App.scss";
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Album, Home, Public, WeekRank } from "./containers/public/index";
+import { getHomeData } from "./redux/actions/HomeActions";
 import { path } from "./ultis/path";
-import { Public, Home, Album, WeekRank } from "./containers/public/index";
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getHomeData());
+  }, [dispatch]);
   return (
     <Routes>
       <Route path={path.PUBLIC} element={<Public></Public>}>

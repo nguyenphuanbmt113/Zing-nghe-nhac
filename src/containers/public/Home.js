@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react";
+import Slider from "../../components/SliceSwiper";
+// import { SliceSwiper } from "../../components/SliceSwiper";
 
 export const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      <div>
+        <Slider></Slider>
+      </div>
+    </>
+  );
+};
