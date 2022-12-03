@@ -4,7 +4,7 @@ import icons from "../ultis/icons";
 const { AiOutlineArrowRight, AiOutlineArrowLeft } = icons;
 export const Header = () => {
   return (
-    <div className="w-full h-[70px] flex items-center px-[59px] border">
+    <div className="w-full h-[70px] flex items-center px-[59px]">
       <div className="flex gap-2 mr-5">
         <div>
           <AiOutlineArrowLeft size="20px"></AiOutlineArrowLeft>
@@ -16,7 +16,7 @@ export const Header = () => {
       <div className="text-sm">
         <input
           type="text"
-          className="py-2 px-4 h-[40px] w-[380px] bg-gray-400 rounded-3xl placeholder:text-white border text-white"
+          className="py-2 px-4 h-[40px] w-[380px] bg-gray-300 rounded-3xl placeholder:text-white text-white"
           placeholder="Tìm Kiếm bài hát, Nghệ sĩ"
         />
       </div>

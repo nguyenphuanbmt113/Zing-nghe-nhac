@@ -19,7 +19,6 @@ const getHomeData = () => {
           homeData: null,
         });
       }
-      console.log("res", res);
     } catch (error) {
       console.log("err:", error);
     }

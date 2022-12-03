@@ -7,7 +7,6 @@ const initState = {
 const appReducer = (state = initState, action) => {
   switch (action.type) {
     case actionTypes.GET_HOME:
-      console.log(":action:", action);
       return {
         ...state,
         banner:
