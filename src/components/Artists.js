@@ -26,7 +26,7 @@ export const Artists = () => {
                       className="object-cover rounded-xl"
                     />
                   </div>
-                  <div className="absolute bottom-0 text-center left-0 right-0 rounded-b-xl text-white bg-black/50 w-full">
+                  <div className="p-2 absolute bottom-0 text-center left-0 right-0 rounded-b-xl text-white bg-black/50 w-full font-mono">
                     {item.name}
                   </div>
                 </div>
