@@ -36,7 +36,7 @@ export const Public = () => {
           <SidebarRight></SidebarRight>
         </div>
       </div>
-      <div className="fixed bottom-0 left-0 right-0 h-[90px] flex-none border bg-main-500 z-[1100]">
+      <div className="fixed bottom-0 left-0 right-0 h-[90px] flex-none border bg-gray-500 z-[1100]">
         <Player></Player>
       </div>
     </div>

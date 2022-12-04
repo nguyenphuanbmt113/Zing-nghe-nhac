@@ -7,6 +7,7 @@ const initState = {
   album: [],
   curSongId: null,
   isPlaying: false,
+  newReleases: {},
 };
 
 const musicReducer = (state = initState, action) => {

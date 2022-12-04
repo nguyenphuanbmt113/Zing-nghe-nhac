@@ -7,7 +7,7 @@ export const Header = ({ handleShow }) => {
     handleShow();
   };
   return (
-    <div className="w-full h-[70px] flex items-center px-[59px] relative">
+    <div className="w-full h-[70px] flex items-center px-[59px] relative bg-gray-200">
       <div
         className="hidden lg:block lg:absolute left-3"
         onClick={() => handleClick()}>
@@ -24,7 +24,7 @@ export const Header = ({ handleShow }) => {
       <div className="text-sm">
         <input
           type="text"
-          className="py-2 px-4 h-[40px] w-[380px] rounded-3xl placeholder:text-black text-gray-500 bg-transparent border focus:bg-gray-300"
+          className="py-2 px-4 h-[40px] w-[380px] rounded-3xl placeholder:text-black text-gray-500 bg-transparent border border-gray-500 focus:bg-gray-300"
           placeholder="Tìm Kiếm bài hát, Nghệ sĩ"
         />
       </div>

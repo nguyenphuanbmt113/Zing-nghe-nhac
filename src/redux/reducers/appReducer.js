@@ -7,6 +7,9 @@ const initState = {
   top100: {},
   xone: {},
   newMusic: {},
+  newReleases: {},
+  weekChart: [],
+  artists: {},
 };
 
 const appReducer = (state = initState, action) => {
@@ -28,7 +31,22 @@ const appReducer = (state = initState, action) => {
         xone:
           action.homeData?.find((item) => item.sectionId === "hXone") || null,
         newMusic:
-         { ...action.homeData?.find((item) => item.sectionId === "hAlbum"), title: "Nhạc mới"} || null,
+          {
+            ...action.homeData?.find((item) => item.sectionId === "hAlbum"),
+            title: "Nhạc mới",
+          } || null,
+        newReleases:
+          action.homeData?.find((item) => item.sectionType === "new-release") ||
+          null,
+        weekChart:
+          action.homeData?.find((item) => item.sectionType === "weekChart")
+            ?.items || null,
+        artists: {
+          ...action.homeData?.find(
+            (item) => item.sectionType === "artistSpotlight"
+          ),
+          title: "Artists",
+        },
       };
 
     default:

@@ -29,7 +29,7 @@ export const Section = (props) => {
         <div className="font-medium text-lg capitalize font-mono">
           {data.title}
         </div>
-        <div className="text-sm capitalize p-2 bg-gray-200 font-mono">
+        <div className="text-sm capitalize font-mono">
           Tất cả
         </div>
       </div>

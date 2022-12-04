@@ -8,7 +8,7 @@ export const SidebarRight = () => {
   const [isActive, setIsActive] = useState(0);
   return (
     <>
-      <div className="h-[70px] flex-auto py-[14px] px-[8px] border-b text-sm">
+      <div className="h-[70px] flex-auto py-[14px] px-[8px] border-b text-[13px]">
         <div className="flex items-center justify-between">
           <button
             className={isActive === 0 ? active : noactive}

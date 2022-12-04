@@ -11,7 +11,7 @@ export const SidebarLeft = ({ handleShow }) => {
 
   return (
     <div className="relative">
-      <div className="absolute top-2 right-2" onClick={() => handleShow()}>
+      <div className="hidden lg:absolute top-2 right-2" onClick={() => handleShow()}>
         <CiCircleRemove size={25}></CiCircleRemove>
       </div>
       <div
