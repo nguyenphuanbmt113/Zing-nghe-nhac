@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetailSong } from "../redux/actions/MusicActions";
+import { playingMusic } from "../redux/actions/MusicActions";
+import { getSongInfo, getSourseMusicById } from "../service/webApi";
 import icons from "../ultis/icons";
 const {
   AiOutlineHeart,
@@ -13,29 +14,63 @@ const {
   CiShuffle,
   BiVolumeMute,
   ImPlay3,
-  BsSuitHeartFill,
+  // BsSuitHeartFill,
 } = icons;
 let iconStyles = { color: "white" };
 export const Player = () => {
-  const { curSongId, InfoSong } = useSelector((state) => state.music);
-  console.log("InfoSong", InfoSong)
+  const [audio, setAudio] = useState(new Audio());
+  const { curSongId, isPlaying } = useSelector((state) => state.music);
+  const [songInfo, setSongInfo] = useState(null);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getDetailSong(curSongId));
+    const fetchDetailSong = async () => {
+      const [res1, res2] = await Promise.all([
+        getSongInfo(curSongId),
+        getSourseMusicById(curSongId),
+      ]);
+      if (res1.err === 0) {
+        setSongInfo(res1.data);
+      }
+      if (res2.err === 0) {
+        audio.pause();
+        setAudio(new Audio(res2?.data["128"]));
+      } else {
+        audio.pause();
+        setAudio(new Audio());
+        dispatch(playingMusic(false));
+      }
+    };
+    fetchDetailSong();
   }, [curSongId]);
+  useEffect(() => {
+    audio.pause();
+    audio.load();
+    if (isPlaying) {
+      audio.play();
+    }
+  }, [audio]);
+  const handleTogglePlayMusic = async () => {
+    if (isPlaying) {
+      audio.pause();
+      dispatch(playingMusic(false));
+    } else {
+      audio.play();
+      dispatch(playingMusic(true));
+    }
+  };
   return (
     <div className="h-full px-5 flex">
       <div className="w-[30%] flex gap-3 items-center justify-start">
         <div>
           <img
-            src={InfoSong?.thumbnail}
+            src={songInfo?.thumbnail}
             alt=""
             className="object-cover w-[64px] h-[64px]"
           />
         </div>
         <div className="flex flex-col gap-1 text-sm text-white">
-          <span>{InfoSong?.title}</span>
-          <span>{InfoSong?.artistsNames}</span>
+          <span>{songInfo?.title}</span>
+          <span>{songInfo?.artistsNames}</span>
         </div>
         <div className="">
           <AiOutlineHeart size={25} style={iconStyles}></AiOutlineHeart>
@@ -44,7 +79,7 @@ export const Player = () => {
           <BsThreeDots size={25} style={iconStyles}></BsThreeDots>
         </div>
       </div>
-      <div className="w-[40%] flex-auto flex items-center justify-center gap-4 flex-col py-2 border-x ">
+      <div className="w-[40%] flex-auto flex items-center justify-center gap-4 flex-col py-2">
         <div className="flex gap-8 justify-center items-center">
           <span className="cursor-pointer" title="Bật phát ngẫu nhiên">
             <CiShuffle size={25} style={iconStyles} />
@@ -52,8 +87,14 @@ export const Player = () => {
           <span className="cursor-pointer">
             <MdSkipPrevious size={25} style={iconStyles} />
           </span>
-          <span className="p-2 border border-white cursor-pointer hover:text-main-500 rounded-full flex items-center justify-center">
-            <BsPauseFill size={25} style={iconStyles} />
+          <span
+            className="p-2 border border-white cursor-pointer hover:text-main-500 rounded-full flex items-center justify-center"
+            onClick={() => handleTogglePlayMusic()}>
+            {isPlaying === true ? (
+              <BsPauseFill size={30} style={iconStyles} />
+            ) : (
+              <ImPlay3 size={30} style={iconStyles}></ImPlay3>
+            )}
           </span>
           <span className="cursor-pointer">
             <MdSkipNext size={24} style={iconStyles} />

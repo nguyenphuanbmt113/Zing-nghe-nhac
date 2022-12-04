@@ -1,7 +1,7 @@
 import moment from "moment";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setCurrentSongId } from "../redux/actions/MusicActions";
+import { playingMusic, setCurrentSongId } from "../redux/actions/MusicActions";
 // import { useDispatch } from "react-redux";
 // import { addtoHistory } from "../redux/reducer/historySlide";
 // import { setCurSongId, setIsPlaying } from "../redux/reducer/musicSlide";
@@ -16,7 +16,9 @@ export const List = ({ songData }) => {
   // };
   const handleClickItemAlbum = (sid) => {
     dispatch(setCurrentSongId(sid));
+    dispatch(playingMusic(true));
   };
+
   return (
     <>
       <div

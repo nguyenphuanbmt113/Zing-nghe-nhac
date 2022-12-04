@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getArrSlider } from "../ultis/fn";
 import { useNavigate } from "react-router-dom";
-import { setCurrentSongId } from "../redux/actions/MusicActions";
+import { playingMusic, setCurrentSongId } from "../redux/actions/MusicActions";
 
 const Slider = () => {
   const { banner: dataBanner } = useSelector((state) => state.app);
@@ -74,6 +74,7 @@ const Slider = () => {
   const handleBanner = (item) => {
     if (item?.type === 1) {
       dispatch(setCurrentSongId(item.encodeId));
+      dispatch(playingMusic(true));
     } else if (item?.type === 4) {
       const albumPath = item?.link?.split(".")[0];
       navigate(albumPath);

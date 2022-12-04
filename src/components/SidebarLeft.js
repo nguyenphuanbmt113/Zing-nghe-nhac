@@ -1,13 +1,19 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import icons from "../ultis/icons";
 import { sidebarMenu } from "../ultis/menu";
-export const SidebarLeft = () => {
+const { CiCircleRemove } = icons;
+export const SidebarLeft = ({ handleShow }) => {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate("/");
   };
+
   return (
-    <>
+    <div className="relative">
+      <div className="absolute top-2 right-2" onClick={() => handleShow()}>
+        <CiCircleRemove size={25}></CiCircleRemove>
+      </div>
       <div
         className="h-[70px] mx-[28px] flex items-center justify-start"
         onClick={() => handleClick()}>
@@ -17,7 +23,7 @@ export const SidebarLeft = () => {
           className="object-cover w-[120px] h-10"
         />
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col text-sm">
         {sidebarMenu.length > 0 &&
           sidebarMenu.map((item) => {
             return (
@@ -35,6 +41,6 @@ export const SidebarLeft = () => {
             );
           })}
       </div>
-    </>
+    </div>
   );
 };

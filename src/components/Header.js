@@ -1,10 +1,18 @@
 import React from "react";
 import icons from "../ultis/icons";
 // import icons from "../../ultis/icons";
-const { AiOutlineArrowRight, AiOutlineArrowLeft } = icons;
-export const Header = () => {
+const { AiOutlineArrowRight, AiOutlineArrowLeft, AiOutlineBars } = icons;
+export const Header = ({ handleShow }) => {
+  const handleClick = () => {
+    handleShow();
+  };
   return (
-    <div className="w-full h-[70px] flex items-center px-[59px]">
+    <div className="w-full h-[70px] flex items-center px-[59px] relative">
+      <div
+        className="hidden lg:block lg:absolute left-3"
+        onClick={() => handleClick()}>
+        <AiOutlineBars size={22}></AiOutlineBars>
+      </div>
       <div className="flex gap-2 mr-5">
         <div>
           <AiOutlineArrowLeft size="20px"></AiOutlineArrowLeft>
@@ -16,7 +24,7 @@ export const Header = () => {
       <div className="text-sm">
         <input
           type="text"
-          className="py-2 px-4 h-[40px] w-[380px] bg-gray-300 rounded-3xl placeholder:text-white text-white"
+          className="py-2 px-4 h-[40px] w-[380px] rounded-3xl placeholder:text-black text-gray-500 bg-transparent border focus:bg-gray-300"
           placeholder="Tìm Kiếm bài hát, Nghệ sĩ"
         />
       </div>

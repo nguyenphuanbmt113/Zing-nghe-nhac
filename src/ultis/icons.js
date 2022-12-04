@@ -8,7 +8,13 @@ import { TiDeleteOutline } from "react-icons/ti";
 import { TbGridDots } from "react-icons/tb";
 import { RiCompassDiscoverLine, RiDeleteBin2Line } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { CiShuffle, CiRepeat, CiHeart, CiPlay1 } from "react-icons/ci";
+import {
+  CiShuffle,
+  CiRepeat,
+  CiHeart,
+  CiPlay1,
+  CiCircleRemove,
+} from "react-icons/ci";
 import { ImPlay3 } from "react-icons/im";
 import { BiVolumeMute, BiDotsHorizontalRounded } from "react-icons/bi";
 import { GrPlay } from "react-icons/gr";
@@ -17,6 +23,7 @@ import {
   AiOutlineArrowLeft,
   AiOutlineArrowRight,
   AiOutlineHeart,
+  AiOutlineBars,
 } from "react-icons/ai";
 import {
   BsPieChart,
@@ -30,6 +37,8 @@ import {
   BsPlay,
 } from "react-icons/bs";
 const icons = {
+  CiCircleRemove,
+  AiOutlineBars,
   GrPlay,
   BsSuitHeartFill,
   BiDotsHorizontalRounded,

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getAlbumRedux } from "../../redux/actions/MusicActions";
+import { getAlbumRedux, setLoading } from "../../redux/actions/MusicActions";
 import moment from "moment";
 import { Lists } from "../../components/Lists";
 import Scrollbars from "react-custom-scrollbars-2";
@@ -11,7 +11,6 @@ export const Album = () => {
   const { abid } = useParams();
   const dispatch = useDispatch();
   const { album } = useSelector((state) => state.music);
-  console.log("album", album);
   useEffect(() => {
     dispatch(getAlbumRedux(abid));
   }, [abid]);

@@ -3,7 +3,7 @@ import axios from "./customApi";
 const getHome = () => {
   return axios.get("/home");
 };
-const getDetailSongById = (idSong) => {
+const getSourseMusicById = (idSong) => {
   return axios.get(`/song?id=${idSong}`);
 };
 const getSongInfo = (idSong) => {
@@ -13,4 +13,4 @@ const getSongInfo = (idSong) => {
 const getAlbum = (idPlaylist) => {
   return axios.get(`/detailplaylist?id=${idPlaylist}`);
 };
-export { getHome, getDetailSongById, getSongInfo, getAlbum };
+export { getHome, getSourseMusicById, getSongInfo, getAlbum };

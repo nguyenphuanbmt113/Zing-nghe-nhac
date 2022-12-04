@@ -1,6 +1,8 @@
 import actionTypes from "../actions/actionsType";
 
 const initState = {
+  isLoading: false,
+  sourse: "",
   InfoSong: {},
   album: [],
   curSongId: null,
@@ -28,6 +30,16 @@ const musicReducer = (state = initState, action) => {
       return {
         ...state,
         album: action.album,
+      };
+    case actionTypes.GET_SOURSE:
+      return {
+        ...state,
+        sourse: action.sourse["128"],
+      };
+    case actionTypes.LOADING:
+      return {
+        ...state,
+        isLoading: action.flag,
       };
 
     default:
