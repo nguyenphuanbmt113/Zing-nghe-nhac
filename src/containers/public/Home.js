@@ -11,6 +11,7 @@ export const Home = () => {
   const { friday, newEveryday, top100, xone, newMusic } = useSelector(
     (state) => state.app
   );
+  const { artists } = useSelector((state) => state.app);
   return (
     <Scrollbars style={{ width: "100%", height: "80%" }} autoHide>
       <div>
@@ -29,7 +30,7 @@ export const Home = () => {
         <WeekChart></WeekChart>
       </div>
       <div className="px-[59px] pt-[30px]">
-        {/* <Artists></Artists> */}
+        <Artists artists={artists}></Artists>
       </div>
 
       <div className="px-[59px] pt-[30px]">
@@ -41,8 +42,6 @@ export const Home = () => {
       <div className="px-[59px] pt-[30px]">
         <Section data={newMusic}></Section>
       </div>
-
-      <div className="h-[500px]"></div>
     </Scrollbars>
   );
 };

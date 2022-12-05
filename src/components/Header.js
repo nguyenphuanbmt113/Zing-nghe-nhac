@@ -29,10 +29,10 @@ export const Header = ({ handleShow }) => {
         />
       </div>
       <div className="flex items-center gap-3 text-sm ml-auto">
-        <button className="px-3 py-2 border border-gray-500  hover:bg-gray-300">
+        <button className="px-3 py-1 border border-gray-500  hover:bg-gray-300 rounded-3xl">
           Đăng Kí
         </button>
-        <button className="px-3 py-2 border  border-gray-500  hover:bg-gray-300">
+        <button className="px-3 py-1 border  border-gray-500  hover:bg-gray-300 rounded-3xl">
           Đăng Nhập
         </button>
       </div>

@@ -23,12 +23,12 @@ export const Public = () => {
       )}
       <div className="flex flex-auto h-full">
         <div
-          className={`transition-all w-[240px] flex-none xl:absolute xl:bg-white xl:border-r z-[2000] h-full xl:-translate-x-[1000px] ${
+          className={`transition-all w-[240px] flex-none xl:absolute xl:bg-white xl:border-r lg:z-[2000] h-full xl:-translate-x-[1000px] ${
             show ? "xl:translate-x-0" : ""
           }`}>
           <SidebarLeft handleShow={handleShow}></SidebarLeft>
         </div>
-        <div className="flex-auto border">
+        <div className="flex-auto border h-full">
           <Header handleShow={handleShow}></Header>
           <Outlet></Outlet>
         </div>

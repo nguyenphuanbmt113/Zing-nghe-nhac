@@ -18,7 +18,7 @@ export const Album = () => {
     dispatch(getAlbumRedux(abid));
   }, [abid]);
   return (
-    <div className="flex gap-8 w-full h-full  pt-[40px] px-[59px]">
+    <div className="flex gap-8 w-[100%] h-[90%] pt-[40px] px-[59px]">
       <div className="flex-none w-1/4 flex flex-col items-center gap-2">
         <img
           src={album?.thumbnailM}
@@ -43,7 +43,7 @@ export const Album = () => {
           )}K người yêu thích`}</span>
         </div>
       </div>
-      <Scrollbars style={{ width: "100%", height: "80%" }} autoHide>
+      <Scrollbars style={{ width: "100%", height: "70%" }} autoHide>
         <div className="flex-auto mb-40">
           <span className="text-sm">
             <span className="text-gray-600">Lời tựa </span>

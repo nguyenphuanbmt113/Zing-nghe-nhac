@@ -1,7 +1,11 @@
 import moment from "moment";
 import React from "react";
-import { useDispatch } from "react-redux";
-import { playingMusic, setCurrentSongId } from "../redux/actions/MusicActions";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  playingMusic,
+  SaveRecent,
+  setCurrentSongId,
+} from "../redux/actions/MusicActions";
 // import { useDispatch } from "react-redux";
 // import { addtoHistory } from "../redux/reducer/historySlide";
 // import { setCurSongId, setIsPlaying } from "../redux/reducer/musicSlide";
@@ -9,14 +13,17 @@ import icons from "../ultis/icons";
 const { BsMusicNoteBeamed } = icons;
 export const List = ({ songData }) => {
   const dispatch = useDispatch();
-  // const handleClickMusic = (item) => {
-  //   dispatch(setCurSongId(item));
-  //   dispatch(setIsPlaying(true));
-  //   dispatch(addtoHistory(item));
-  // };
   const handleClickItemAlbum = (sid) => {
     dispatch(setCurrentSongId(sid));
     dispatch(playingMusic(true));
+    dispatch(
+      SaveRecent({
+        encodeId: songData?.encodeId,
+        thumbnail: songData?.thumbnailM,
+        artistsNames: songData?.artistsNames,
+        title: songData?.title,
+      })
+    );
   };
 
   return (

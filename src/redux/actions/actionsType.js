@@ -8,6 +8,7 @@ const actionTypes = {
   // music
   PLAY: "PLAY",
   LOADING: "LOADING",
+  RESENT_SONG: "RESENT_SONG",
 };
 
 export default actionTypes;

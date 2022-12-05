@@ -88,6 +88,11 @@ const setSourseMusic = (sid) => {
     }
   };
 };
+
+const SaveRecent = (data) => ({
+  type: actionTypes.RESENT_SONG,
+  data,
+});
 export {
   setCurrentSongId,
   getDetailSong,
@@ -96,4 +101,5 @@ export {
   setSourseMusic,
   setLoading,
   setCurrentAlbumId,
+  SaveRecent,
 };

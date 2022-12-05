@@ -9,6 +9,7 @@ const initState = {
   curAlbumId: null,
   isPlaying: false,
   newReleases: {},
+  watchRecentSong: [],
 };
 
 const musicReducer = (state = initState, action) => {
@@ -47,6 +48,26 @@ const musicReducer = (state = initState, action) => {
       return {
         ...state,
         curAlbumId: action.albumId,
+      };
+    case actionTypes.RESENT_SONG:
+      let valueArr = state.watchRecentSong.map(function (item) {
+        return item.title;
+      });
+      let isDuplicate = valueArr.some(function (item, idx) {
+        return item === action.data.title;
+      });
+      let songs = state.watchRecentSong;
+      if (isDuplicate === false) {
+        songs = [action.data, ...state.watchRecentSong];
+      }
+      if (songs.length < 15) {
+        songs = [action.data, ...state.watchRecentSong];
+      } else {
+        songs = songs.filter((item, index, seft) => index !== seft.length - 1);
+      }
+      return {
+        ...state,
+        watchRecentSong: songs,
       };
 
     default:
