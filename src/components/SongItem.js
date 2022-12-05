@@ -15,7 +15,7 @@ export const SongItem = ({ data, icon, iconAfter, sid }) => {
   };
   return (
     <div
-      className="py-2 pl-2 pr-10 flex gap-3 rounded-xl hover:bg-gray-200 transition-all relative"
+      className="py-2 pl-2 pr-10 flex gap-2 rounded-xl hover:bg-gray-200 transition-all relative text-sm"
       onClick={() => handleClickSongItem()}>
       <div className="flex-none w-[60px] h-[60px]">
         <img
@@ -27,8 +27,12 @@ export const SongItem = ({ data, icon, iconAfter, sid }) => {
       <div className="flex-auto">
         <div className="flex flex-col gap-1">
           <span className="text-ellipsis overflow-hidden">{data?.title}</span>
-          <span className="text-medium">{data?.artistsNames}</span>
-          <span>{moment(data?.releaseDate * 1000).fromNow()}</span>
+          <span className="text-medium text-[12px] text-gray-400">
+            {data?.artistsNames}
+          </span>
+          <span className="text-[10px] text-gray-400">
+            {moment(data?.releaseDate * 1000).fromNow()}
+          </span>
         </div>
       </div>
       <div

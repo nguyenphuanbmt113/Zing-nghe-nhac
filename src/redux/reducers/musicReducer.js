@@ -6,6 +6,7 @@ const initState = {
   InfoSong: {},
   album: [],
   curSongId: null,
+  curAlbumId: null,
   isPlaying: false,
   newReleases: {},
 };
@@ -41,6 +42,11 @@ const musicReducer = (state = initState, action) => {
       return {
         ...state,
         isLoading: action.flag,
+      };
+    case actionTypes.SET_CUR_ALBUM_ID:
+      return {
+        ...state,
+        curAlbumId: action.albumId,
       };
 
     default:

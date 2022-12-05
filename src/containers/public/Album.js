@@ -1,17 +1,20 @@
+import moment from "moment";
 import React, { useEffect } from "react";
+import Scrollbars from "react-custom-scrollbars-2";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getAlbumRedux, setLoading } from "../../redux/actions/MusicActions";
-import moment from "moment";
+
 import { Lists } from "../../components/Lists";
-import Scrollbars from "react-custom-scrollbars-2";
-// import Scrollbars from "react-custom-scrollbars-2";
-// import { Lists } from "../../components/Lists";
+import {
+  getAlbumRedux,
+  setCurrentAlbumId,
+} from "../../redux/actions/MusicActions";
 export const Album = () => {
   const { abid } = useParams();
   const dispatch = useDispatch();
   const { album } = useSelector((state) => state.music);
   useEffect(() => {
+    dispatch(setCurrentAlbumId(abid));
     dispatch(getAlbumRedux(abid));
   }, [abid]);
   return (

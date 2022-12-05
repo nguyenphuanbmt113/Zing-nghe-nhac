@@ -11,7 +11,7 @@ export const Artists = () => {
         </div>
         <div className="text-sm capitalize font-mono">Tất cả</div>
       </div>
-      <div className="grid  grid-cols-5 gap-3 lg:grid-cols-3">
+      <div className="grid grid-cols-5 gap-3 lg:grid-cols-3">
         {artists &&
           artists.items.length > 0 &&
           artists.items

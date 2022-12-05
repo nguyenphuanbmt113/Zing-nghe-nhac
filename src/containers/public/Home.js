@@ -29,7 +29,7 @@ export const Home = () => {
         <WeekChart></WeekChart>
       </div>
       <div className="px-[59px] pt-[30px]">
-        <Artists></Artists>
+        {/* <Artists></Artists> */}
       </div>
 
       <div className="px-[59px] pt-[30px]">

@@ -9,6 +9,10 @@ const setCurrentSongId = (sid) => ({
   type: actionTypes.SET_CUR_SONG_ID,
   sid,
 });
+const setCurrentAlbumId = (albumId) => ({
+  type: actionTypes.SET_CUR_ALBUM_ID,
+  albumId,
+});
 const setLoading = (flag) => ({
   type: actionTypes.LOADING,
   flag,
@@ -91,4 +95,5 @@ export {
   playingMusic,
   setSourseMusic,
   setLoading,
+  setCurrentAlbumId,
 };

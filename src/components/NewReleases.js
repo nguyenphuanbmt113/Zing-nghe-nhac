@@ -7,7 +7,6 @@ const no_active = "px-2 py-1 rounded-3xl border text-gray-400 text-sm";
 export const NewReleases = () => {
   const { newReleases } = useSelector((state) => state.app);
   const [isActive, setIsActive] = useState(0);
-  console.log("newReleases", newReleases);
   return (
     <div>
       <div className="flex items-center justify-between">
