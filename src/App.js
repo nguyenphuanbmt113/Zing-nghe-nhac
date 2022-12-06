@@ -3,6 +3,9 @@ import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import { Album, Home, Public, WeekRank } from "./containers/public/index";
+import { Search } from "./containers/public/Search";
+import { SearchAll } from "./containers/public/SearchAll";
+import { SearchSong } from "./containers/public/SearchSong";
 import { getHomeData } from "./redux/actions/HomeActions";
 import { path } from "./ultis/path";
 const App = () => {
@@ -16,6 +19,14 @@ const App = () => {
         <Route path={path.HOME} element={<Home></Home>}></Route>
         <Route path={path.ALBUM} element={<Album></Album>}></Route>
         <Route path={path.WEEK_RANK} element={<WeekRank></WeekRank>}></Route>
+        <Route path={path.SEARCH} element={<Search></Search>}>
+          <Route
+            path={path.SEARCH_ALL}
+            element={<SearchAll></SearchAll>}></Route>
+          <Route
+            path={path.SEARCH_SONG}
+            element={<SearchSong></SearchSong>}></Route>
+        </Route>
         <Route path={path.START} element={<Home></Home>}></Route>
       </Route>
     </Routes>
