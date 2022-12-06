@@ -23,7 +23,7 @@ export const SidebarRight = () => {
   // }, [curAlbumId]);
   return (
     <>
-      <div className="h-[70px] flex-auto py-[14px] px-[8px] border-b text-[12px]">
+      <div className="h-[70px] flex-auto py-[14px] px-[8px] text-[12px]">
         <div className="flex items-center gap-4">
           <button
             className={isActive === 0 ? active : noactive}
@@ -51,7 +51,7 @@ export const SidebarRight = () => {
               {album?.title}
             </span>
           </div>
-          <Scrollbars style={{ width: "100%", height: "500px" }}>
+          <Scrollbars style={{ width: "100%", height: "450px" }}>
             <div className="grid grid-cols-1">
               {album &&
                 album?.song?.items.length > 0 &&

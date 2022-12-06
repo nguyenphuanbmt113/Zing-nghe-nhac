@@ -1,39 +1,33 @@
-import React, { useState } from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
-import { searchApi } from "../service/webApi";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createSearchParams, useNavigate } from "react-router-dom";
+import { searchItemReduxThunk } from "../redux/actions/searchActions";
 import icons from "../ultis/icons";
+import { path } from "../ultis/path";
 // import icons from "../../ultis/icons";
 const { AiOutlineArrowRight, AiOutlineArrowLeft, AiOutlineBars } = icons;
 export const Header = ({ handleShow }) => {
-  const searchRef = useRef();
+  const dispatch = useDispatch();
   const [value, setValue] = useState("");
+  console.log("value", value);
   const handleClick = () => {
     handleShow();
   };
-  const handleValue = (e) => {
-    setValue(e.target.value);
+  const navigate = useNavigate();
+  const handleSearch = (e) => {
+    if (e.keyCode === 13) {
+      dispatch(searchItemReduxThunk(value));
+      navigate({
+        pathname: `${path.SEARCH}/${path.SEARCH_ALL}`,
+        search: createSearchParams({
+          q: value,
+        }).toString(),
+      });
+    }
   };
 
-  useEffect(() => {
-    const handleSearch = (e) => {
-      const fetchingSearchData = async () => {
-        const res = await searchApi(value);
-        console.log("res", res);
-      };
-      if (e.keyCode === 13) {
-        fetchingSearchData();
-      }
-    };
-    const curr = searchRef.current;
-    curr.addEventListener("keyup", handleSearch);
-    return () => {
-      curr.removeEventListener("keyup", handleSearch);
-    };
-  }, [value]);
-
   return (
-    <div className="w-full h-[70px] flex items-center px-[59px] relative bg-gray-200">
+    <div className="w-full h-[70px] flex items-center px-[59px] relative bg-gray-300">
       <div
         className="hidden lg:block lg:absolute left-3"
         onClick={() => handleClick()}>
@@ -49,12 +43,12 @@ export const Header = ({ handleShow }) => {
       </div>
       <div className="text-sm">
         <input
-          ref={searchRef}
           type="text"
           value={value}
-          onChange={(e) => handleValue(e)}
+          onChange={(e) => setValue(e.target.value)}
           className="py-2 px-4 h-[40px] w-[380px] rounded-3xl placeholder:text-black text-gray-500 bg-transparent border border-gray-500 focus:bg-gray-300"
           placeholder="Tìm Kiếm bài hát, Nghệ sĩ"
+          onKeyUp={(e) => handleSearch(e)}
         />
       </div>
       <div className="flex items-center gap-3 text-sm ml-auto">

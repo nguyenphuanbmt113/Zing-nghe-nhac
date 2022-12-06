@@ -9,6 +9,7 @@ const actionTypes = {
   PLAY: "PLAY",
   LOADING: "LOADING",
   RESENT_SONG: "RESENT_SONG",
+  SEARCH: "SEARCH",
 };
 
 export default actionTypes;
