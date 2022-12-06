@@ -47,7 +47,7 @@ export const List = ({ songData }) => {
             <span>{songData?.artistsNames}</span>
           </span>
         </div>
-        <div className="flex-1 flex items-center justify-center">
+        <div className="flex-1 flex items-center justify-center lg:hidden">
           {songData?.album?.title?.length > 30
             ? `${songData?.album?.title?.slice(0, 30)}...`
             : songData?.album?.title}

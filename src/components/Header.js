@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { createSearchParams, useNavigate } from "react-router-dom";
 import { searchItemReduxThunk } from "../redux/actions/searchActions";
 import icons from "../ultis/icons";
@@ -23,11 +23,12 @@ export const Header = ({ handleShow }) => {
           q: value,
         }).toString(),
       });
+      setValue("")
     }
   };
 
   return (
-    <div className="w-full h-[70px] flex items-center px-[59px] relative bg-gray-300">
+    <div className="w-full h-[70px] flex items-center px-[59px] relative shadow-sm bg-gray-100">
       <div
         className="hidden lg:block lg:absolute left-3"
         onClick={() => handleClick()}>
@@ -46,7 +47,7 @@ export const Header = ({ handleShow }) => {
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          className="py-2 px-4 h-[40px] w-[380px] rounded-3xl placeholder:text-black text-gray-500 bg-transparent border border-gray-500 focus:bg-gray-300"
+          className="py-2 px-4 h-[40px] w-[380px] rounded-3xl placeholder:text-gray-400 text-gray-500 bg-transparent border border-gray-500 focus:bg-gray-300"
           placeholder="Tìm Kiếm bài hát, Nghệ sĩ"
           onKeyUp={(e) => handleSearch(e)}
         />

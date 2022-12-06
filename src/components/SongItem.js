@@ -25,8 +25,8 @@ export const SongItem = ({ data, icon, iconAfter, sid }) => {
         />
       </div>
       <div className="flex-auto">
-        <div className="flex flex-col gap-1">
-          <span className="text-ellipsis overflow-hidden">{data?.title}</span>
+        <div className="flex flex-col">
+          <span className="w-[140px] truncate">{data?.title}</span>
           <span className="text-medium text-[12px] text-gray-400">
             {data?.artistsNames}
           </span>

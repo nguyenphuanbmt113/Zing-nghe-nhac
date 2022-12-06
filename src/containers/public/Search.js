@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { menuSearch } from "../../ultis/menu";
-
+import Scrollbars from "react-custom-scrollbars-2";
 export const Search = () => {
   return (
     <div>
@@ -28,7 +28,7 @@ export const Search = () => {
             })}
         </div>
       </div>
-      <div className="">
+      <div className="relative">
         <Outlet></Outlet>
       </div>
     </div>

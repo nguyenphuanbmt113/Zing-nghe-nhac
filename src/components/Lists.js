@@ -8,7 +8,7 @@ export const Lists = ({ songs, totalDuration }) => {
     <div className="w-full flex flex-col text-xs text-gray-600">
       <div className=" flex justify-between items-center p-[10px] font-semibold">
         <span>BÀI HÁT</span>
-        <span>ALBUM</span>
+        <span className="lg:hidden">ALBUM</span>
         <span>THỜI GIAN</span>
       </div>
       <div className="flex flex-col">
