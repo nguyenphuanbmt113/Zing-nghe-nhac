@@ -9,7 +9,6 @@ const { AiOutlineArrowRight, AiOutlineArrowLeft, AiOutlineBars } = icons;
 export const Header = ({ handleShow }) => {
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
-  console.log("value", value);
   const handleClick = () => {
     handleShow();
   };

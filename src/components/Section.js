@@ -1,6 +1,7 @@
 import _ from "lodash";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SliceWord } from "../ultis/fn";
 import icons from "../ultis/icons";
 const { BiDotsHorizontalRounded, CiHeart, BsSuitHeartFill, BsPlay } = icons;
 
@@ -8,10 +9,7 @@ export const Section = (props) => {
   const [fill, setFill] = useState(false);
   const { data } = props;
   const navigate = useNavigate();
-  const SliceWord = (string) => {
-    const arrString = string.split(".");
-    return arrString[0];
-  };
+
   const handleClick = (item) => {
     let link = SliceWord(item?.link);
     navigate(`${link}`);

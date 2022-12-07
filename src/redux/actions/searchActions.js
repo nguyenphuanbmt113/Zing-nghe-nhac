@@ -9,12 +9,14 @@ const searchItemReduxThunk = (keyword) => {
         dispatch({
           type: actions.SEARCH,
           data: res?.data,
+          keyword,
         });
       } else {
         dispatch({
           type: actions.SEARCH,
           data: null,
-        });
+          keyword : "",
+        }); 
       }
     } catch (error) {
       console.log("error:", error);

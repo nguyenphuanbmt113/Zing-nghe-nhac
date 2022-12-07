@@ -24,6 +24,8 @@ import {
   AiOutlineArrowRight,
   AiOutlineHeart,
   AiOutlineBars,
+  AiOutlineUserAdd,
+  AiOutlineShareAlt,
 } from "react-icons/ai";
 import {
   BsPieChart,
@@ -69,5 +71,7 @@ const icons = {
   HiOutlinePlay,
   BsPlay,
   RiDeleteBin2Line,
+  AiOutlineUserAdd,
+  AiOutlineShareAlt,
 };
 export default icons;

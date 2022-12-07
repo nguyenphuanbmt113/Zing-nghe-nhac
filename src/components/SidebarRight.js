@@ -1,14 +1,16 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAlbumRedux, getDetailSong } from "../redux/actions/MusicActions";
-import icons from "../ultis/icons";
-import { ListRight } from "./ListRight";
-import { RightSongItems } from "./RightSongItem";
+import React, { useEffect, useState } from "react";
 import Scrollbars from "react-custom-scrollbars-2";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getAlbumRedux,
+  getDetailSong,
+  setCurrentAlbumId,
+} from "../redux/actions/MusicActions";
+import icons from "../ultis/icons";
+import { RightSongItems } from "./RightSongItem";
 const active = "px-3 py-2 bg-gray-200 rounded-3xl text-main-500";
 const noactive = "px-3 py-2 rounded-3xl text-main-500 border";
-const { BsThreeDots, CiHeart, BsSuitHeartFill, RiDeleteBin2Line } = icons;
+const { BsThreeDots } = icons;
 export const SidebarRight = () => {
   const [isActive, setIsActive] = useState(0);
   const { curSongId, InfoSong, album, curAlbumId, watchRecentSong } =
@@ -17,10 +19,7 @@ export const SidebarRight = () => {
   useEffect(() => {
     dispatch(getDetailSong(curSongId));
     dispatch(getAlbumRedux(curAlbumId));
-  }, [curSongId, curAlbumId, dispatch]);
-  // useEffect(() => {
-  //   dispatch(getAlbumRedux(curAlbumId));
-  // }, [curAlbumId]);
+  }, [curSongId, curAlbumId, dispatch, InfoSong?.album?.encodeId]);
   return (
     <>
       <div className="h-[70px] flex-auto py-[14px] px-[8px] text-[12px]">

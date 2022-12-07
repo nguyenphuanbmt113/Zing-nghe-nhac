@@ -7,5 +7,6 @@ export const path = {
   SEARCH: "tim-kiem",
   SEARCH_ALL: "tat-ca",
   SEARCH_SONG: "bai-hat",
+  PROFILE: ":singer",
   START: "*",
 };

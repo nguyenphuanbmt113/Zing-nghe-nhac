@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
+import { Signer } from "./components/Signer";
 import { Album, Home, Public, WeekRank } from "./containers/public/index";
 import { Search } from "./containers/public/Search";
 import { SearchAll } from "./containers/public/SearchAll";
@@ -19,6 +20,7 @@ const App = () => {
         <Route path={path.HOME} element={<Home></Home>}></Route>
         <Route path={path.ALBUM} element={<Album></Album>}></Route>
         <Route path={path.WEEK_RANK} element={<WeekRank></WeekRank>}></Route>
+        <Route path={path.PROFILE} element={<Signer></Signer>}></Route>
         <Route path={path.SEARCH} element={<Search></Search>}>
           <Route
             path={path.SEARCH_ALL}

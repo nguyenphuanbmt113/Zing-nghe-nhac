@@ -23,3 +23,7 @@ export const nFormatter = (num) => {
   }
   return num;
 };
+export const SliceWord = (string) => {
+  const arrString = string.split(".");
+  return arrString[0];
+};
