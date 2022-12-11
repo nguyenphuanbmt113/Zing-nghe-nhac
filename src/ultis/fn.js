@@ -27,3 +27,6 @@ export const SliceWord = (string) => {
   const arrString = string.split(".");
   return arrString[0];
 };
+// export const changeKeyWord = (keyword) => {
+//   return keyword.replace(" ", "+");
+// };

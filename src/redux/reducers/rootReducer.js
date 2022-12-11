@@ -12,12 +12,19 @@ const commonConfig = {
 const musicConfig = {
   ...commonConfig,
   key: "music",
-  whitelist: ["curSongId", "InfoSong", "curAlbumId", "watchRecentSong", "top"],
+  whitelist: [
+    "curSongId",
+    "InfoSong",
+    "curAlbumId",
+    "watchRecentSong",
+    "top",
+    "keyword",
+  ],
 };
 const rootReducer = combineReducers({
   app: appReducer,
   music: persistReducer(musicConfig, musicReducer),
-  search: searchReducer,
+  search: persistReducer(musicConfig, searchReducer),
 });
 
 export default rootReducer;

@@ -1,26 +1,29 @@
 import { searchApi } from "../../service/webApi";
+import actionTypes from "../actions/actionsType";
 import actions from "../actions/actionsType";
 const searchItemReduxThunk = (keyword) => {
+  // const keyword = keyword.replace(" ", "+");
   return async (dispatch, getState) => {
     try {
       const res = await searchApi(keyword);
-      console.log("res", res);
       if (res.err === 0) {
         dispatch({
           type: actions.SEARCH,
           data: res?.data,
-          keyword,
         });
       } else {
         dispatch({
           type: actions.SEARCH,
           data: null,
-          keyword : "",
-        }); 
+        });
       }
     } catch (error) {
       console.log("error:", error);
     }
   };
 };
-export { searchItemReduxThunk };
+const setValueSearch = (flag) => ({
+  type: actionTypes.SEARCH_VALUE,
+  flag,
+});
+export { searchItemReduxThunk, setValueSearch };

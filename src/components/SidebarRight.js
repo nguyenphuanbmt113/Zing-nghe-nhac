@@ -3,8 +3,7 @@ import Scrollbars from "react-custom-scrollbars-2";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getAlbumRedux,
-  getDetailSong,
-  setCurrentAlbumId,
+  getDetailSong
 } from "../redux/actions/MusicActions";
 import icons from "../ultis/icons";
 import { RightSongItems } from "./RightSongItem";

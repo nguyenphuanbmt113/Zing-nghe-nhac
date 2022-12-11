@@ -6,7 +6,7 @@ export const Search = () => {
   const { keyword } = useSelector((state) => state.search);
   return (
     <div>
-      <div className="px-[59px] mb-[28px] flex items-center h-[47px]  border-b">
+      <div className="px-[59px] mb-[28px] flex items-center h-[47px]">
         <div className="font-semibold pr-[20px] border-r border-gray-600 text-[20px]">
           Kết Quả Tìm Kiếm
         </div>
@@ -16,7 +16,7 @@ export const Search = () => {
               return (
                 <NavLink
                   key={item.id}
-                  to={`${item.path}?q=${keyword}`}
+                  to={`${item.path}?q=${keyword.replace("%20", "+")}`}
                   className={({ isActive }) =>
                     isActive === true
                       ? "py-[15px] font-medium cursor-pointer text-main-500"

@@ -6,7 +6,7 @@ const initState = {
   counter: {},
   artists: [],
   playlists: [],
-  keyword: {}
+  keyword: "",
 };
 
 const searchReducer = (state = initState, action) => {
@@ -19,7 +19,11 @@ const searchReducer = (state = initState, action) => {
         counter: action?.data?.counter,
         artists: action?.data?.artists,
         playlists: action?.data?.playlists,
-        keyword: action.keyword
+      };
+    case actionTypes.SEARCH_VALUE:
+      return {
+        ...state,
+        keyword: action?.flag,
       };
 
     default:

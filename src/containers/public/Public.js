@@ -11,7 +11,7 @@ import { Loading } from "../../components/Loading";
 export const Public = () => {
   const [show, setShow] = useState(false);
   const { isLoading } = useSelector((state) => state.music);
-  const handleShow = () => {
+  const handleshow = () => {
     setShow(!show);
   };
   return (
@@ -26,10 +26,10 @@ export const Public = () => {
           className={`transition-all w-[240px] flex-none xl:absolute xl:bg-white xl:border-r lg:z-[2000] h-full xl:-translate-x-[1000px] ${
             show ? "xl:translate-x-0" : ""
           }`}>
-          <SidebarLeft handleShow={handleShow}></SidebarLeft>
+          <SidebarLeft handleshow={handleshow}></SidebarLeft>
         </div>
         <div className="flex-auto border h-full">
-          <Header handleShow={handleShow}></Header>
+          <Header handleshow={handleshow}></Header>
           <Outlet></Outlet>
         </div>
         <div className="w-[320px] flex-none xl:hidden">

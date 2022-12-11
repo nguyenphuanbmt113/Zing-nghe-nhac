@@ -15,7 +15,6 @@ export const SongItem = ({ data, icon, iconAfter, sid }) => {
   const handleClickSongItem = () => {
     dispatch(setCurrentSongId(sid));
     dispatch(playingMusic(true));
-    console.log("?data:", data);
   };
   return (
     <div

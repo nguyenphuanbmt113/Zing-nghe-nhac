@@ -10,6 +10,7 @@ const actionTypes = {
   LOADING: "LOADING",
   RESENT_SONG: "RESENT_SONG",
   SEARCH: "SEARCH",
+  SEARCH_VALUE: "SEARCH_VALUE",
 };
 
 export default actionTypes;

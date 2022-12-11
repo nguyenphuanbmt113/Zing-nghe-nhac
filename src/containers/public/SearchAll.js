@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Scrollbars from "react-custom-scrollbars-2";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { ArtistsSearch } from "../../components/ArtistsSearch";
 import { RightSongItems } from "../../components/RightSongItem";
 import { searchItemReduxThunk } from "../../redux/actions/searchActions";
@@ -11,13 +11,16 @@ export const SearchAll = () => {
   const { songs, artists, playlists, keyword } = useSelector(
     (state) => state.search
   );
-  console.log("keyword", keyword);
+  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
     dispatch(searchItemReduxThunk(keyword));
-  }, [dispatch, keyword]);
-  //show playlist
+  }, [keyword]);
+  useEffect(() => {
+    const query = searchParams.get("q");
+    dispatch(searchItemReduxThunk(query));
+  }, [dispatch, searchParams]);
   const handleClick = (item) => {
     let link = SliceWord(item?.link);
     navigate(`${link}`);
@@ -34,7 +37,9 @@ export const SearchAll = () => {
                 .filter((item, index) => index < 3)
                 .map((item, i) => {
                   return (
-                    <div className="flex items-center p-[10px] rounded-lg border border-gray-200 gap-2 hover:bg-gray-300 transition-all hover:border-0">
+                    <div
+                      className="flex items-center p-[10px] rounded-lg gap-2 hover:bg-gray-300 transition-all hover:border-0"
+                      key={i}>
                       <div>
                         <img
                           src={item?.thumbnail}
@@ -80,10 +85,11 @@ export const SearchAll = () => {
             {playlists &&
               playlists
                 .filter((item, index) => index < 5)
-                .map((item) => {
+                .map((item, i) => {
                   return (
                     <div
                       onClick={() => handleClick(item)}
+                      key={i}
                       className="cursor-pointer">
                       <div>
                         <img
@@ -109,9 +115,12 @@ export const SearchAll = () => {
             {artists &&
               artists
                 .filter((item, index) => index < 5)
-                .map((item) => {
+                .map((item, i) => {
                   return (
-                    <ArtistsSearch data={item} link={item.link}></ArtistsSearch>
+                    <ArtistsSearch
+                      data={item}
+                      link={item.link}
+                      key={i}></ArtistsSearch>
                   );
                 })}
           </div>
