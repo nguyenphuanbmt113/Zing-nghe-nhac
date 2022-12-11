@@ -7,7 +7,6 @@ import {
 } from "../redux/actions/searchActions";
 import icons from "../ultis/icons";
 import { path } from "../ultis/path";
-// import icons from "../../ultis/icons";
 const { AiOutlineArrowRight, AiOutlineArrowLeft, AiOutlineBars } = icons;
 export const Header = ({ handleshow }) => {
   const dispatch = useDispatch();
@@ -28,6 +27,7 @@ export const Header = ({ handleshow }) => {
           q: value,
         }).toString(),
       });
+      setValue("");
     }
   };
 

@@ -2,7 +2,7 @@ import icons from "./icons";
 const {
   MdOutlineLibraryMusic,
   RiCompassDiscoverLine,
-  BsPieChart,
+  BsBarChart,
   AiOutlinePlayCircle,
 } = icons;
 export const sidebarMenu = [
@@ -22,7 +22,7 @@ export const sidebarMenu = [
     id: 3,
     path: "zing-chart",
     text: "zing-chart",
-    icon: <BsPieChart size="24"></BsPieChart>,
+    icon: <BsBarChart size="24"></BsBarChart>,
   },
   {
     id: 4,

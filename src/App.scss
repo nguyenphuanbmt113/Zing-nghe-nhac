@@ -30,3 +30,19 @@ img {
   display: block;
   max-width: 100%;
 }
+// .slick-slide {
+//   margin: 0 20px;
+// }
+
+.slick-list {
+  margin: 0 -5px;
+}
+.slick-slide > div {
+  padding: 0 5px;
+}
+.slick-prev:before {
+  color: black !important;
+}
+.slick-next:before {
+  color: black !important;
+}

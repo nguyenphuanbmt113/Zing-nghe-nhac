@@ -37,6 +37,7 @@ import {
   BsArrowLeftSquare,
   BsSuitHeartFill,
   BsPlay,
+  BsBarChart,
 } from "react-icons/bs";
 const icons = {
   CiCircleRemove,
@@ -60,6 +61,7 @@ const icons = {
   MdSkipNext,
   CiShuffle,
   CiRepeat,
+  BsBarChart,
   BsPauseFill,
   BsVolumeUp,
   BiVolumeMute,

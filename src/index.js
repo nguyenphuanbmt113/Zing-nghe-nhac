@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import App from "./App";
 import "./index.scss";
 import { Provider } from "react-redux";
@@ -13,7 +15,7 @@ ReactDOM.render(
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </PersistGate>
+    </PersistGate> 
   </Provider>,
   document.getElementById("root")
 );

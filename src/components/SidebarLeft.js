@@ -31,8 +31,8 @@ export const SidebarLeft = ({ handleshow }) => {
             return (
               <NavLink
                 to={item.path}
-                className={({ isactive }) =>
-                  isactive === true
+                className={({ isActive }) =>
+                  isActive === true
                     ? "py-2 px-[25px] font-medium text-primary flex gap-3 items-center hover:bg-gray-200 bg-gray-200"
                     : "py-2 px-[25px] font-medium text-[#32323d] flex gap-3 items-center hover:bg-gray-200"
                 }
