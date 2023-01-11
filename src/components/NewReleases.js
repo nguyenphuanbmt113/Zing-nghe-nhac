@@ -28,7 +28,7 @@ export const NewReleases = () => {
         </button>
       </div>
       {isActive === 0 ? (
-        <div className="grid grid-cols-3 gap-2 lg:grid-cols- mt-[20px] text-[12px]">
+        <div className="grid grid-cols-3 gap-2 lg:grid-cols- mt-[20px] text-[12px] md:grid-cols-2">
           {newReleases?.items?.vPop.map((item, index) => {
             return (
               <SongItem

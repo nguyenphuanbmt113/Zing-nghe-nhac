@@ -61,7 +61,7 @@ export const Header = ({ handleshow }) => {
           onKeyUp={(e) => handleSearch(e)}
         />
       </div>
-      <div className="flex items-center gap-3 text-[14px] ml-auto text-white font-medium">
+      <div className="flex items-center gap-3 text-[14px] ml-auto text-white font-medium md:hidden">
         <button className="px-3 py-1 border border-gray-200  hover:bg-gray-300 rounded-3xl">
           Đăng Kí
         </button>

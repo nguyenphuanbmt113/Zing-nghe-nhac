@@ -68,7 +68,7 @@ export const Player = () => {
             className="object-cover w-[64px] h-[64px]"
           />
         </div>
-        <div className="flex flex-col gap-1 text-sm text-white">
+        <div className="flex flex-col gap-1 text-sm text-white lg:hidden">
           <span>{songInfo?.title}</span>
           <span>{songInfo?.artistsNames}</span>
         </div>
