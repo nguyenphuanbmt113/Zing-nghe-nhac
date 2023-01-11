@@ -17,4 +17,14 @@ const getAlbum = (idPlaylist) => {
 const searchApi = (keyword) => {
   return axios.get(`/search?keyword=${keyword}`);
 };
-export { getHome, getSourseMusicById, getSongInfo, getAlbum, searchApi };
+const getArtist = (name) => {
+  return axios.get(`/artist?name=${name}`);
+};
+export {
+  getHome,
+  getSourseMusicById,
+  getSongInfo,
+  getAlbum,
+  searchApi,
+  getArtist,
+};

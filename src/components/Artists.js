@@ -1,5 +1,6 @@
 import _ from "lodash";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 const settings = {
   dots: true,
@@ -9,10 +10,14 @@ const settings = {
   slidesToScroll: 1,
 };
 export const Artists = ({ artists }) => {
+  const navigate = useNavigate();
   console.log("artists", artists);
   if (_.isEmpty(artists)) {
-    return <div>Some thing wrong with data</div>;
+    return <></>;
   }
+  const handleSinger = (link) => {
+    navigate(link);
+  };
   return (
     <div>
       <div className="mb-[20px]">
@@ -48,7 +53,10 @@ export const Artists = ({ artists }) => {
         {artists &&
           artists?.items.map((item) => {
             return (
-              <div className="relative" key={item.id}>
+              <div
+                className="relative"
+                key={item.id}
+                onClick={() => handleSinger(item.link)}>
                 <div>
                   <img
                     src={item?.thumbnail}

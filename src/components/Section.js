@@ -19,7 +19,7 @@ export const Section = (props) => {
     setFill(!fill);
   };
   if (_.isEmpty(data)) {
-    return <div>Some thing wrong with data</div>;
+    return <></>;
   }
   return (
     <div className="flex flex-col gap-5">
@@ -27,43 +27,43 @@ export const Section = (props) => {
         <div className="font-medium text-lg capitalize font-mono">
           {data.title}
         </div>
-        <div className="text-sm capitalize font-mono">
-          Tất cả
-        </div>
+        <div className="text-sm capitalize font-mono">Tất cả</div>
       </div>
       <div className="grid grid-cols-5 lg:grid-cols-3 md:grid-cols-3 gap-4 gap-y-6 text-sm">
         {data &&
           data?.items.length > 0 &&
-          data?.items.filter((item, index)=>index <= 4)?.map((item) => {
-            return (
-              <div
-                key={item.encodeId}
-                className="flex flex-col gap-1"
-                onClick={() => handleClick(item)}>
-                <div className="relative">
-                  <img src={item.thumbnailM} alt="avatar" />
-                  <div className="opacity-0 absolute inset-0 bg-black/50 text-white flex items-center justify-center gap-3 w-full hover:opacity-100 transition-opacity ease-in">
-                    <div className="" onClick={(e) => handleHeart(e)}>
-                      {fill === false ? (
-                        <CiHeart size={24}></CiHeart>
-                      ) : (
-                        <BsSuitHeartFill></BsSuitHeartFill>
-                      )}
-                    </div>
-                    <div className="p-2 rounded-full border border-white flex items-center justify-center">
-                      <BsPlay size={24}></BsPlay>
-                    </div>
-                    <div>
-                      <BiDotsHorizontalRounded
-                        size={24}></BiDotsHorizontalRounded>
+          data?.items
+            .filter((item, index) => index <= 4)
+            ?.map((item) => {
+              return (
+                <div
+                  key={item.encodeId}
+                  className="flex flex-col gap-1"
+                  onClick={() => handleClick(item)}>
+                  <div className="relative">
+                    <img src={item.thumbnailM} alt="avatar" />
+                    <div className="opacity-0 absolute inset-0 bg-black/50 text-white flex items-center justify-center gap-3 w-full hover:opacity-100 transition-opacity ease-in">
+                      <div className="" onClick={(e) => handleHeart(e)}>
+                        {fill === false ? (
+                          <CiHeart size={24}></CiHeart>
+                        ) : (
+                          <BsSuitHeartFill></BsSuitHeartFill>
+                        )}
+                      </div>
+                      <div className="p-2 rounded-full border border-white flex items-center justify-center">
+                        <BsPlay size={24}></BsPlay>
+                      </div>
+                      <div>
+                        <BiDotsHorizontalRounded
+                          size={24}></BiDotsHorizontalRounded>
+                      </div>
                     </div>
                   </div>
+                  <div className="truncate">{item.title}</div>
+                  <div className="truncate">{item.sortDescription}</div>
                 </div>
-                <div className="truncate">{item.title}</div>
-                <div className="truncate">{item.sortDescription}</div>
-              </div>
-            );
-          })}
+              );
+            })}
       </div>
     </div>
   );

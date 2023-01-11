@@ -18,8 +18,10 @@ export const SongItem = ({ data, icon, iconAfter, sid }) => {
   };
   return (
     <div
-      className={`py-2 pl-2 pr-10 flex gap-2 rounded-xl hover:bg-gray-200 transition-all relative text-sm ${
-        data.encodeId === curSongId ? "bg-gray-200" : ""
+      className={`group py-2 pl-2 pr-10 flex gap-2 rounded-xl hover:bg-[#205295] hover:bg-opacity-80 hover:text-white transition-all relative text-sm ${
+        data.encodeId === curSongId
+          ? "bg-[#205295] bg-opacity-80 text-white"
+          : ""
       }`}
       onClick={() => handleClickSongItem()}>
       <div className="flex-none w-[60px] h-[60px] relative">
@@ -40,10 +42,16 @@ export const SongItem = ({ data, icon, iconAfter, sid }) => {
       <div className="flex-auto">
         <div className="flex flex-col">
           <span className="w-[140px] truncate">{data?.title}</span>
-          <span className="text-medium text-[12px] text-gray-400">
+          <span
+            className={`text-medium text-[12px]  group-hover:text-white ${
+              data.encodeId === curSongId ? "text-white" : "text-gray-400"
+            }`}>
             {data?.artistsNames}
           </span>
-          <span className="text-[10px] text-gray-400">
+          <span
+            className={`text-[10px] group-hover:text-white ${
+              data.encodeId === curSongId ? "text-white" : "text-gray-400"
+            }`}>
             {moment(data?.releaseDate * 1000).fromNow()}
           </span>
         </div>

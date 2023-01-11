@@ -11,6 +11,7 @@ export const SearchAll = () => {
   const { songs, artists, playlists, keyword } = useSelector(
     (state) => state.search
   );
+  console.log("artists", artists);
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,7 +41,10 @@ export const SearchAll = () => {
                     <div
                       className="flex items-center p-[10px] rounded-lg gap-2 hover:bg-gray-300 transition-all hover:border-0"
                       key={i}>
-                      <div>
+                      <div
+                        onClick={() => {
+                          navigate(item.link);
+                        }}>
                         <img
                           src={item?.thumbnail}
                           alt=""

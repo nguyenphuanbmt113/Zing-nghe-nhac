@@ -13,9 +13,9 @@ export const RightSongItems = ({ data, sid, rounded }) => {
   };
   return (
     <div
-      className={`py-2 pl-2 pr-10 flex gap-2 hover:bg-gray-200 transition-all relative text-sm ${
+      className={`group py-2 pl-2 pr-10 flex gap-2 hover:bg-[#205295] hover:bg-opacity-80 hover:text-white transition-all relative text-sm ${
         rounded ? "rounded-lg" : ""
-      } ${sid === curSongId ? "bg-gray-300" : ""}`}
+      } ${sid === curSongId ? "bg-[#205295] bg-opacity-80 text-white" : ""}`}
       onClick={() => handleClickSongItem()}>
       <div className={`flex-none w-[60px] h-[60px] relative `}>
         <img
@@ -35,7 +35,10 @@ export const RightSongItems = ({ data, sid, rounded }) => {
       <div className="flex-auto">
         <div className="flex flex-col">
           <span className="text-ellipsis overflow-hidden">{data?.title}</span>
-          <span className="text-medium text-[12px] text-gray-400">
+          <span
+            className={`group-hover:text-white text-medium text-[12px] ${
+              sid === curSongId ? "text-white" : "text-gray-400"
+            }`}>
             {data?.artistsNames}
           </span>
         </div>

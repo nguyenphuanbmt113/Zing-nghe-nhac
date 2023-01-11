@@ -23,12 +23,12 @@ export const Public = () => {
       )}
       <div className="flex flex-auto h-full">
         <div
-          className={`transition-all w-[240px] flex-none xl:absolute xl:bg-white xl:border-r lg:z-[2000] h-full xl:-translate-x-[1000px] ${
+          className={`border transition-all w-[240px] flex-none xl:absolute xl:bg-white xl:border-r lg:z-[2000] h-full xl:-translate-x-[1000px] ${
             show ? "xl:translate-x-0" : ""
           }`}>
           <SidebarLeft handleshow={handleshow}></SidebarLeft>
         </div>
-        <div className="flex-auto border h-full">
+        <div className="flex-auto h-full">
           <Header handleshow={handleshow}></Header>
           <Outlet></Outlet>
         </div>
@@ -36,7 +36,7 @@ export const Public = () => {
           <SidebarRight></SidebarRight>
         </div>
       </div>
-      <div className="fixed bottom-0 left-0 right-0 h-[90px] flex-none border bg-gray-500 z-[1100]">
+      <div className="fixed bottom-0 left-0 right-0 h-[90px] flex-none bg-[#205295] z-[1100]">
         <Player></Player>
       </div>
     </div>

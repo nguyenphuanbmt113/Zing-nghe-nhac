@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createSearchParams, useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate, useParams } from "react-router-dom";
 import {
   searchItemReduxThunk,
   setValueSearch,
@@ -10,6 +10,8 @@ import { path } from "../ultis/path";
 const { AiOutlineArrowRight, AiOutlineArrowLeft, AiOutlineBars } = icons;
 export const Header = ({ handleshow }) => {
   const dispatch = useDispatch();
+  const { singer } = useParams();
+  console.log("singer", singer);
   const [value, setValue] = useState("");
   const handleClick = () => {
     handleshow();
@@ -32,7 +34,10 @@ export const Header = ({ handleshow }) => {
   };
 
   return (
-    <div className="w-full h-[70px] flex items-center px-[59px] relative shadow-sm bg-gray-100">
+    <div
+      className={`text-white w-full h-[70px] flex items-center px-[59px] relative ${
+        singer ? "bg-[#205295]" : "bg-[#205295]"
+      }`}>
       <div
         className="hidden lg:block lg:absolute left-3"
         onClick={() => handleClick()}>
@@ -51,12 +56,12 @@ export const Header = ({ handleshow }) => {
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          className="py-2 px-4 h-[40px] w-[380px] rounded-3xl placeholder:text-gray-400 text-gray-500 bg-transparent border border-gray-300 focus:bg-gray-300"
+          className="py-2 px-4 h-[40px] w-[380px] rounded-3xl placeholder:text-white text-white font-medium bg-transparent border border-gray-300 focus:bg-white focus:text-black"
           placeholder="Tìm Kiếm bài hát, Nghệ sĩ"
           onKeyUp={(e) => handleSearch(e)}
         />
       </div>
-      <div className="flex items-center gap-3 text-[14px] ml-auto text-gray-500">
+      <div className="flex items-center gap-3 text-[14px] ml-auto text-white font-medium">
         <button className="px-3 py-1 border border-gray-200  hover:bg-gray-300 rounded-3xl">
           Đăng Kí
         </button>

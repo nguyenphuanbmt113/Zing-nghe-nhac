@@ -45,7 +45,7 @@ export const SidebarRight = () => {
           </div>
           <div className="p-[8px] text-sm text-gray-500 flex flex-col">
             <span className="text-[12px] text-gray-400">từ playlist</span>
-            <span className="text-green-500 font-semibold font-mono">
+            <span className="text-[#205295] font-semibold font-mono">
               {album?.title}
             </span>
           </div>
